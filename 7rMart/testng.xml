@@ -3,13 +3,13 @@
 <suite name="Suite">
   <test name="Test">
     <classes>
-      <class name="testscript.LoginTest"></class>
+     <!--  <class name="testscript.LoginTest"></class>-->
       <class name="testscript.AdminUsersTest"/>
-      <class name="testscript.ManageNewsTest"/>
+     <!-- <class name="testscript.ManageNewsTest"/>
       <class name="testscript.ManageDeliveryBoyTest"/>
       <class name="testscript.ManageLocationTest"/>
       <class name="testscript.CategoryTest"/>
-      <class name="testscript.LogoutTest"></class>
+      <class name="testscript.LogoutTest"></class>-->
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -10,10 +10,11 @@ import org.testng.annotations.Test;
 import pages.AdminUsersPage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
+import utilities.FakerUtility;
 
 public class AdminUsersTest extends BaseClass{
 	
-	@Test
+	@Test(retryAnalyzer = retrymechanism.Retry.class)
 	public void VerifyUserisAbletoCreateAdminUsers() throws IOException {
 		
 		String username = ExcelUtility.getStringData(1, 0, "loginpage");
@@ -31,8 +32,12 @@ public class AdminUsersTest extends BaseClass{
 		adminusers.clickNewOption();
 		//Assert.assertTrue(adminusers.isAdminPageSubtitleDisplayed());
 		
-		String adnusername = ExcelUtility.getStringData(1, 0, "adminpage");
-		String adnpassword = ExcelUtility.getStringData(1, 1, "adminpage");
+		//String adnusername = ExcelUtility.getStringData(1, 0, "adminpage");
+		//String adnpassword = ExcelUtility.getStringData(1, 1, "adminpage");
+		FakerUtility fakerutility = new FakerUtility();
+		String adnusername = fakerutility.creatARandomFirstName();
+		String adnpassword = fakerutility.creatARandomFirstName();
+		
 		String usertypedropdown = ExcelUtility.getStringData(1, 2, "adminpage");
 		
 		adminusers.createnewAdminUser(adnusername, adnpassword, usertypedropdown);

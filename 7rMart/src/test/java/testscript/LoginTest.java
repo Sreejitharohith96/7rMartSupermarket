@@ -13,7 +13,7 @@ public class LoginTest extends BaseClass{
 	
 	
 	
-	@Test(retryAnalyzer = retrymechanism.Retry.class)
+	@Test(retryAnalyzer = retrymechanism.Retry.class ,description = "Login with valid Username and password")
 	public void loginWithValidCredentials() throws IOException {
 		
 		String username = ExcelUtility.getStringData(1, 0, "loginpage");
@@ -27,7 +27,7 @@ public class LoginTest extends BaseClass{
 		Assert.assertEquals(true, true, "Please retry with valid credentials");
 		
 	}
-	@Test
+	@Test(retryAnalyzer = retrymechanism.Retry.class ,description = "Verify Login is failed if valid Username and invalid password is provided")
 	public void verifyLoginwithValidUsernameAndInvalidPassword() throws IOException {	
 		
 		String username = ExcelUtility.getStringData(2, 0, "loginpage");
@@ -44,7 +44,7 @@ public class LoginTest extends BaseClass{
 		
 	}
 	
-	@Test
+	@Test(retryAnalyzer = retrymechanism.Retry.class ,description = "Verify Login is failed if invalid Username and valid password is provided")
 	public void verifyLoginwithInvalidUsernameAndValidPassword() throws IOException {
 		
 		String username = ExcelUtility.getStringData(3, 0, "loginpage");
@@ -61,7 +61,7 @@ public class LoginTest extends BaseClass{
 		
 	}
 	
-	@Test
+	@Test(retryAnalyzer = retrymechanism.Retry.class ,description = "Verify Login is failed if invalid Username and invalid password is provided")
 	public void verifyUserUnabletoLoginwithInvalidCredentials() throws IOException {
 		String username = ExcelUtility.getStringData(4, 0, "loginpage");
 		String password = ExcelUtility.getStringData(4, 1, "loginpage");

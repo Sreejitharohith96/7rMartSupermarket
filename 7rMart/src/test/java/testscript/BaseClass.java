@@ -1,6 +1,10 @@
 package testscript;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.lang.invoke.ConstantBootstraps;
+import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,16 +12,30 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import constant.ConstantClass;
 import utilities.ScreenshotUtility;
+import utilities.WaitUtility;
 
 public class BaseClass {
 	
 	WebDriver driver;
-	
+public Properties prop;	
+public FileInputStream fileip;
 	@BeforeMethod
 	public void browserInitialiser() {
+		try {
+			prop = new Properties();
+			fileip = new FileInputStream(ConstantClass.CONFIG_FILE);
+			prop.load(fileip);
+			
+		} 
+		catch (Exception e) {
+			System.out.println(e);
+		}
 	  driver = new ChromeDriver();
-	  driver.get("https://groceryapp.uniqassosiates.com/admin/login");
+	 // driver.get("https://groceryapp.uniqassosiates.com/admin/login");
+	  driver.get(prop.getProperty("url")); //key from config.pro 
+	  driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(WaitUtility.IMPLICIT_WAIT));
 	  driver.manage().window().maximize();
 		
 	}

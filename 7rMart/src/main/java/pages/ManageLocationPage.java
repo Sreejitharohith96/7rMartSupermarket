@@ -11,8 +11,8 @@ public class ManageLocationPage {
 	
 	WebDriver driver;
 	
-	@FindBy(xpath="//a[@class='small-box-footer' and  @href=\"https://groceryapp.uniqassosiates.com/admin/list-location\"]") 
-	WebElement managelocation;
+//	@FindBy(xpath="//a[@class='small-box-footer' and  @href=\"https://groceryapp.uniqassosiates.com/admin/list-location\"]") 
+//	WebElement managelocation;
 	@FindBy(xpath="//a[@class='btn btn-rounded btn-danger']") WebElement newbtn;
 	@FindBy(xpath="//select[@class='form-control selectpicker' and @id='country_id']") WebElement country;
 	@FindBy(xpath="//select[@id='st_id']") WebElement state;
@@ -27,35 +27,41 @@ public class ManageLocationPage {
 		
 	}
 	
-	public void clickmanageLocation() {
-		managelocation.click();
-	}
+//	public void clickmanageLocation() {
+//		managelocation.click();
+//	}
 	
-	public void clickNewButton() {
+	public ManageLocationPage clickNewButton() {
 		newbtn.click();
+		return this;
 	}
 	
-	public void selectCountry() {
+	public ManageLocationPage selectCountry() {
 		PageUtility pageutility = new PageUtility();
 		pageutility.dropdownVisibleText(country, "United Kingdom");;
+		return this;
 	}
 	
-	public void selectState() {
+	public ManageLocationPage selectState() {
 		PageUtility pageutility = new PageUtility();
 		pageutility.dropdownVisibleText(state, "London");
+		return this;
 	}
 	
-	public void selectLocation(String locationname) {
+	public ManageLocationPage selectLocation(String locationname) {
 		location.sendKeys(locationname);
+		return this;
 	}
 	
-	public void enterdeliverycharge(int del_charge) {
+	public ManageLocationPage enterdeliverycharge(int del_charge) {
 		delivery_charge.sendKeys(String.valueOf(del_charge));
 		//return del_charge;
+		return this;
 	}
 	
-	public void saveaction() {
+	public ManageLocationPage saveaction() {
 		savebtn.click();
+		return this;
 	}
 	
 	public boolean successmsgisDisplayed() {

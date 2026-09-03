@@ -17,7 +17,7 @@ public class Listeners implements ITestListener{ //ITestListener is the intaerfa
  	ExtentReports extent = ExtendReportUtility.createExtentReports(); 
  	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>(); //ThreadLocal given for synchronisation
   
- 	public void onTestStart(ITestResult result) { //methods inside ITestListener
+ 	public void onTestStart(ITestResult result) { //methods inside ITestListener which invoke all TC name and attch in report
   
  		ITestListener.super.onTestStart(result); 
  		test = extent.createTest(result.getMethod().getMethodName()); 

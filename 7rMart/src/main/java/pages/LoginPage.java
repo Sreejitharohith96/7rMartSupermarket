@@ -21,18 +21,21 @@ public class LoginPage {
 		
 	}
 	
-	public void enterUsername(String username) {
+	public LoginPage enterUsername(String username) {
 		usernamefield.sendKeys(username);
+		return this; //not changing to any other page. so return this
 		
 	}
 	
-	public void enterPassword(String password) {
+	public LoginPage enterPassword(String password) {
 		passwordfield.sendKeys(password);
+		return this;
 		
 	}
 	
-	public void signin() {
+	public HomePage signin() {
 		signinButton.click();
+		return new HomePage(driver);
 	}
 	
 	public boolean dashboardIsDisplayed() {

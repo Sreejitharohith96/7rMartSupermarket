@@ -12,6 +12,7 @@ public class WaitUtility {
 	public static final int IMPLICIT_WAIT=5;
 	
 	public static final int EXPLICIT_WAIT=5;
+	
 	public void waitForElementToBeClickable(WebDriver driver, WebElement element) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
@@ -21,6 +22,12 @@ public class WaitUtility {
 	public void waitForAlertToBeVisible(WebDriver driver) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
 		wait.until(ExpectedConditions.alertIsPresent());
+	}
+	
+	public void waitForTextTobePresent(WebDriver driver,WebElement element) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_WAIT));
+		wait.until(ExpectedConditions.textToBePresentInElement(element, "News Created Successfully"));
+		
 	}
 
 }

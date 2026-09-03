@@ -4,9 +4,9 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import pages.LoginPage;
-import pages.LogoutPage;
+import pages.HomePage;
 
-public class LogoutTest extends BaseClass{
+public class HomeTest extends BaseClass{
 	
 	@Test
 	public void logout() {
@@ -19,7 +19,7 @@ public class LogoutTest extends BaseClass{
 	loginpage.enterPassword(password);
 	loginpage.signin();
 	
-	LogoutPage logout = new LogoutPage(driver);
+	HomePage logout = new HomePage(driver);
 	logout.clickadminButton();
 	logout.clicklogout();
 	Assert.assertTrue(logout.successfulLogout());

@@ -10,8 +10,8 @@ import utilities.PageUtility;
 public class ManageNewsPage {
 	WebDriver driver;
 	
-	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news' and @class='small-box-footer']") 
-	WebElement managenews;
+//	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news' and @class='small-box-footer']") 
+//	WebElement managenews;
 	@FindBy(xpath="//a[@class=\"btn btn-rounded btn-danger\"]") WebElement newbutton;
 	@FindBy(xpath="//textarea[@id='news']") WebElement newstextfield;
 	@FindBy(xpath="//button[@name='create']") WebElement savebtn;
@@ -24,26 +24,29 @@ public class ManageNewsPage {
 		
 	}
 	
-	public void clickManageNews() {
-		PageUtility pageutil = new PageUtility();
-		pageutil.click(driver, managenews);
-		//managenews.click();
-	}
+//	public void clickManageNews() {
+//		PageUtility pageutil = new PageUtility();
+//		pageutil.click(driver, managenews);
+//		//managenews.click();
+//	}
 	
 	public boolean isPageTitleDisplayed() {
 		return heading.isDisplayed();
 	}
 	
-	public void clickNewButton() {
+	public ManageNewsPage clickNewButton() {
 		newbutton.click();
+		return this;
 	}
 	
-	public void enterNews(String news) {
+	public ManageNewsPage enterNews(String news) {
 		newstextfield.sendKeys(news);
+		return this;
 	}
 	
-	public void savenews() {
+	public ManageNewsPage savenews() {
 		savebtn.click();
+		return this;
 	}
 	
 	public boolean successmsgvalidation() {

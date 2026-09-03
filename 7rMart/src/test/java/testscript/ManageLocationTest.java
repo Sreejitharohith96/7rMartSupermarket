@@ -7,11 +7,14 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import pages.HomePage;
 import pages.LoginPage;
 import pages.ManageLocationPage;
 import utilities.ExcelUtility;
 
 public class ManageLocationTest extends BaseClass{
+	ManageLocationPage managelocation;
+	HomePage homepage;
 	
 	@Test
 	public void verifyUserisAbletoCreateLocationSuccessfully() throws IOException {
@@ -20,12 +23,12 @@ public class ManageLocationTest extends BaseClass{
 		String password = ExcelUtility.getStringData(1, 1, "loginpage");
 		
 		LoginPage login = new LoginPage(driver);
-		login.enterUsername(username);
-		login.enterPassword(password);
+		login.enterUsername(username).enterPassword(password);
+		//login.enterPassword(password);
 		login.signin();
 		
 		ManageLocationPage managelocation = new ManageLocationPage(driver);
-		managelocation.clickmanageLocation();
+		managelocation=homepage.clickmanageLocation();
 		managelocation.clickNewButton();
 		managelocation.selectCountry();
 		managelocation.selectState();
